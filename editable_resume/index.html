@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #11cbb2, #2575fc);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 800px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        header {
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 150px;
+            border-radius: 50%;
+            margin: 5px 0;
+            border: 3px solid #007BFF;
+            transition: transform 0.3s;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            color: black;
+        }
+
+        h2 {
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+            color: #007BFF;
+        }
+
+        section {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #e7f1ff;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        section.hidden {
+            display: none;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .profile-pic {
+                width: 100px;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img class="profile-pic" src="https://via.placeholder.com/150" alt="Profile Picture" />
+            <h1 id="name">Iqra Rehmat Ali</h1>
+            <button id="editButton">Edit Profile</button>
+        </header>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>JavaScript</li>
+                <li>TypeScript</li>
+                <li>HTML & CSS</li>
+                <li>React</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            <ul>
+                <li>Software Engineer at XYZ Corp</li>
+                <li>Frontend Developer at ABC Ltd.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <ul>
+                <li>Bachelor's in Computer Science</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <ul>
+                <li>Email: <span id="email">iqra@gmail.com</span></li>
+                <li>Phone: <span id="phone">+92234567890</span></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>About Me</h2>
+            <p id="aboutMe">A passionate developer with experience in web technologies.</p>
+        </section>
+
+    </div>
+
+    <script>
+        // JavaScript for Editing the Resume
+        document.addEventListener("DOMContentLoaded", function () {
+            const editButton = document.getElementById("editButton");
+            const nameElement = document.getElementById("name");
+            const aboutMeElement = document.getElementById("aboutMe");
+            const emailElement = document.getElementById("email");
+            const phoneElement = document.getElementById("phone");
+            const skillsSection = document.getElementById("skills");
+            let isEditing = false;
+
+            // Toggle edit mode
+            editButton.addEventListener("click", function () {
+                isEditing = !isEditing;
+                if (isEditing) {
+                    editButton.innerText = "Save Profile";
+                    nameElement.setAttribute("contenteditable", "true");
+                    aboutMeElement.setAttribute("contenteditable", "true");
+                    emailElement.setAttribute("contenteditable", "true");
+                    phoneElement.setAttribute("contenteditable", "true");
+
+                    // Make skills editable
+                    skillsSection.querySelectorAll("li").forEach(skill => {
+                        skill.setAttribute("contenteditable", "true");
+                    });
+                } else {
+                    editButton.innerText = "Edit Profile";
+                    nameElement.removeAttribute("contenteditable");
+                    aboutMeElement.removeAttribute("contenteditable");
+                    emailElement.removeAttribute("contenteditable");
+                    phoneElement.removeAttribute("contenteditable");
+
+                    // Remove contenteditable for skills
+                    skillsSection.querySelectorAll("li").forEach(skill => {
+                        skill.removeAttribute("contenteditable");
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
