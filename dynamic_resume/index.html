@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #11cbb2, #2575fc);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 800px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: black;
+            text-align: center;
+        }
+
+        section {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #e7f1ff;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+        }
+
+        .form-section input,
+        .form-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-section button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-section button:hover {
+            background-color: #0056b3;
+        }
+
+        .resume-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .resume-container h2 {
+            color: #007BFF;
+        }
+
+        .profile-pic {
+            width: 150px;
+            border-radius: 50%;
+            margin: 5px 0;
+            border: 3px solid #007BFF;
+        }
+
+        .resume-container ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .profile-pic {
+                width: 100px;
+            }
+
+            .form-section button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Resume Generator</h1>
+        
+        <!-- Form Section -->
+        <section class="form-section">
+            <h2>Enter Your Information</h2>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" placeholder="Your Name">
+            
+            <label for="aboutMe">About Me:</label>
+            <textarea id="aboutMe" rows="4" placeholder="Write a short description about yourself"></textarea>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Your Email">
+            
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" placeholder="Your Phone Number">
+            
+            <label for="linkedin">LinkedIn:</label>
+            <input type="url" id="linkedin" placeholder="Your LinkedIn URL">
+            
+            <label for="github">GitHub:</label>
+            <input type="url" id="github" placeholder="Your GitHub URL">
+            
+            <label for="skills">Skills (comma separated):</label>
+            <input type="text" id="skills" placeholder="e.g., JavaScript, HTML, CSS">
+            
+            <label for="experience">Experience (comma separated):</label>
+            <input type="text" id="experience" placeholder="e.g., Frontend Developer at ABC Corp, 2018-2022">
+            
+            <label for="education">Education (comma separated):</label>
+            <input type="text" id="education" placeholder="e.g., Bachelor's in Computer Science, XYZ University">
+            
+            <button onclick="generateResume()">Generate Resume</button>
+        </section>
+        
+        <!-- Generated Resume Section -->
+        <div class="resume-container" id="resumeContainer">
+            <header>
+                <img class="profile-pic" id="profilePic" src="profile.jpeg" alt="Profile Picture">
+                <h2 id="generatedName"></h2>
+            </header>
+
+            <section>
+                <h3>About Me</h3>
+                <p id="generatedAboutMe"></p>
+            </section>
+
+            <section>
+                <h3>Contact Information</h3>
+                <ul>
+                    <li>Email: <span id="generatedEmail"></span></li>
+                    <li>Phone: <span id="generatedPhone"></span></li>
+                    <li>LinkedIn: <span id="generatedLinkedin"></span></li>
+                    <li>GitHub: <span id="generatedGithub"></span></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Skills</h3>
+                <ul id="generatedSkills"></ul>
+            </section>
+
+            <section>
+                <h3>Experience</h3>
+                <ul id="generatedExperience"></ul>
+            </section>
+
+            <section>
+                <h3>Education</h3>
+                <ul id="generatedEducation"></ul>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Function to generate resume based on user input
+        function generateResume() {
+            // Get user input data
+            const name = document.getElementById("name").value;
+            const aboutMe = document.getElementById("aboutMe").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const linkedin = document.getElementById("linkedin").value;
+            const github = document.getElementById("github").value;
+            const skills = document.getElementById("skills").value.split(",");
+            const experience = document.getElementById("experience").value.split(",");
+            const education = document.getElementById("education").value.split(",");
+
+            // Set the generated data into the resume template
+            document.getElementById("generatedName").innerText = name;
+            document.getElementById("generatedAboutMe").innerText = aboutMe;
+            document.getElementById("generatedEmail").innerText = email;
+            document.getElementById("generatedPhone").innerText = phone;
+            document.getElementById("generatedLinkedin").innerText = linkedin;
+            document.getElementById("generatedGithub").innerText = github;
+
+            // Render skills list
+            const skillsList = document.getElementById("generatedSkills");
+            skillsList.innerHTML = ""; // Clear previous list
+            skills.forEach(skill => {
+                const li = document.createElement("li");
+                li.innerText = skill.trim();
+                skillsList.appendChild(li);
+            });
+
+            // Render experience list
+            const experienceList = document.getElementById("generatedExperience");
+            experienceList.innerHTML = ""; // Clear previous list
+            experience.forEach(job => {
+                const li = document.createElement("li");
+                li.innerText = job.trim();
+                experienceList.appendChild(li);
+            });
+
+            // Render education list
+            const educationList = document.getElementById("generatedEducation");
+            educationList.innerHTML = ""; // Clear previous list
+            education.forEach(edu => {
+                const li = document.createElement("li");
+                li.innerText = edu.trim();
+                educationList.appendChild(li);
+            });
+
+            // Show the resume container
+            document.getElementById("resumeContainer").style.display = "block";
+        }
+    </script>
+</body>
+</html>
