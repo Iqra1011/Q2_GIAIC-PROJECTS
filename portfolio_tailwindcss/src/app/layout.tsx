@@ -6,7 +6,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <title>Amairah&apos;s Portfolio</title>
+        <title>Amairah Portfolio</title>
       </head>
       <body className="bg-gray-100 text-gray-900">
         <NavBar />
