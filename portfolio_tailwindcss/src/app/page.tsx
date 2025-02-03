@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="bg-blue-100 p-10 rounded-lg shadow-md text-center">
-      <h1 className="text-3xl font-bold text-blue-600">Hi, I&apos;m Amairah 👋</h1>
+      <h1 className="text-3xl font-bold text-blue-600">Hi, I am Amairah 👋</h1>
       <Image
         src="/profile.jpg"
         width={150}
@@ -12,7 +12,7 @@ export default function Home() {
         className="rounded-full mx-auto my-4"
       />
       <p className="text-lg">
-        I&apos;m a passionate <span className="font-semibold">web developer</span> skilled in{" "}
+        I am a passionate <span className="font-semibold">web developer</span> skilled in{" "}
         <span className="font-semibold">Next.js, TypeScript, and Python</span>. I love building
         interactive web applications.
       </p>
