@@ -12,7 +12,7 @@ export default function Contact() {
       <p className="text-lg mt-2">
         🔗 LinkedIn:{" "}
         <a href="https://linkedin.com/in/amairah" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-          Amairah&apos;s LinkedIn
+          Amairah LinkedIn
         </a>
       </p>
       <p className="text-lg mt-2 font-semibold">💼 Available for Freelance &amp; Collaborations!</p>
