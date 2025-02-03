@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import NavBar from "../components/NavBar";
+// import NavBar from "../components/NavBar";
 import "./globals.css";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -9,7 +9,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <title>Amairah's Portfolio</title>
       </head>
       <body className="bg-gray-100 text-gray-900">
-        <NavBar />
+{/*         <NavBar /> */}
         <main className="container mx-auto min-h-screen px-4 py-8">{children}</main>
         <footer className="bg-gray-800 text-white text-center py-4">
           <p>© 2025 Amairah | Web Developer | All Rights Reserved.</p>
