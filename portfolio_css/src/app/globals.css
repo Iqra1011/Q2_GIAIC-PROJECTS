@@ -1,0 +1,93 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  text-align: center;
+}
+
+/* Navbar styles */
+nav {
+  background-color: #333;
+  padding: 15px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin: 0 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main container */
+.main-container {
+  min-height: 80vh;
+  padding: 30px;
+}
+
+/* Home Page */
+.home-container {
+  background-color: #e3f2fd;
+  padding: 40px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.profile-img {
+  border-radius: 50%;
+  margin: 15px 0;
+}
+
+/* About Page */
+.about-container {
+  background-color: #ffecb3;
+  padding: 40px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+/* Contact Page */
+.contact-container {
+  background-color: #ffccbc;
+  padding: 40px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #222;
+  color: white;
+  padding: 15px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
