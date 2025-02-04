@@ -6,7 +6,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <title>Amairah Portfolio</title>
+        <title>{"Amairah's Portfolio"}</title>
       </head>
       <body className="bg-gray-100 text-gray-900">
         <NavBar />
@@ -18,4 +18,3 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     </html>
   );
 }
-// error free
